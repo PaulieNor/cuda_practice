@@ -18,6 +18,8 @@ typedef struct {
 
 __global__ void linearRegressionKernel(float *x, float *y, sums *shared_sums, int n) {
 
+// TODO: split up atomic adds into seperate kernals. too many locks happening here.
+
     int idx = threadIdx.x + blockIdx.x * blockDim.x;
 
 
